@@ -8,7 +8,7 @@ import numpy as np
 import pickle
 
 
-def coller(g, fichier, x, y):
+def paste(g, fichier, x, y):
 	g.addlayer()
 	g.open(fichier)
 	g.select([-1000, -1000, 2000, 2000])
@@ -35,7 +35,7 @@ def make(blocks):
     g.new("circuit")
     for block in blocks:
         fname = "blocks/{}.mc".format(block[0])
-        coller(g, fname, *transfo(block[1], block[2]))
+        paste(g, fname, *transfo(block[1], block[2]))
     g.fit()
     g.save("circuit.mc", "mc")
 
